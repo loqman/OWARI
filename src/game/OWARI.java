@@ -46,7 +46,7 @@ public class OWARI {
 	
 	
 	/**
-	 * Takes no arguments.  OWARI is the top-level call.  It sets the
+	 * Takes players as arguments.  OWARI is the top-level call.  It sets the
 	 * board to the initial position. 
 	 */
 	public OWARI(Player first_opponent, Player second_opponent)
