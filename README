@@ -1,1 +1,128 @@
-OWARI is played on a board with 14 holes arranged as two rows of 6with two holes in the middle on the ends of the rows.  Complete rulesof the game are int Owari: the rules of the game.The STATE of the game is very simple to describe.  All you needto keep track of are the number of stones in each of the fourteenholes (and whose turn it is, but that can be done automatically).Let's represent the board as a list of 14 numbers.  The firstsix will be the player's holes, the seventh will be theplayer's goal hole, the next six will be the computer's holes(counting counter-clockwise around the board) and the 14th willbe the computer's goal hole.  So the list (1 3 0 2 2 2 6 4 2 1 0 8 1 11)would represent the board position:     1  8  0  1  2  4 11                    6     1  3  0  2  2  2For the purposes of this program, holes are numbered from 0 to 13,beginning with the player's first hole and going counterclockwise.So above, there is 1 stone in hole number 0, 3 in hole number 1,4 in number 7, 11 in number 13, etc.1. Owari: the rules of the gameEach player has six pits lined up horizontally in front of him or her, and a "goal" pit on the sideto the right. When you play against the computer, the board will be represented as a picture:     3 3 3 3 3 30                    0     3 3 3 3 3 3with your pits at the bottom, your goal pit at the right, and the computer's pits at the top and goalpit at the left. The picture above shows the start position: each pit has 3 stones in it, except forthe goal pits which are empty.To make a move, a player chooses one of the six pits on his or her side of the board (the chosenpit must have stones in it) and redistributes (or "sows") the stones one-by-one going counterclockwisearound the board, starting with the pit following the one picked. The opponent's goalpit, if reached, is skipped. For the purposes of this implementation, the pits on the player's sideare numbered 0 to 5, with 6 being the player's goal pit, and the computer's pits are numbered 7 to12 from right to left (i.e. continuing counter-clockwise) with the computer's goal pit number 13.If on your first turn you choose to move from pit number 4, the resulting position would be:     3 3 3 3 3 40                    1     3 3 3 3 0 4Capturing: If the last stone of a player's move falls into an empty pit on the moving player's sideof the board, then any stones in the pit opposite to it are captured and placed in the movingplayer's goal pit. For instance, if it were your turn in the position shown above, you couldchoose to move from pit number 1 (remember that the leftmost pit on your side is number 0) andthe resulting position would be:     3 3 3 3 0 40                    4     3 0 4 4 1 4in which the stones from pit number 8 have been captured and placed in your goal pit.Ending the game: When either player empties all six pits on his or her side of the board, thegame is over. The other player takes all the remaining stones from his or her own side, andplaces them in his or her goal pit. Players count the stones in their goal pits. The player with themost stones is the winner.NOTE: Implimentation of the minimax with alpha beta pruning is completed.	But still there is some stuff that I must work on them.	The Computer class works only if you pass the computer player as the 	second player to the OWARI, and you can only use one computer bot in the	game.=======OWARI is played on a board with 14 holes arranged as two rows of 6with two holes in the middle on the ends of the rows.  Complete rulesof the game are int Owari: the rules of the game.The STATE of the game is very simple to describe.  All you needto keep track of are the number of stones in each of the fourteenholes (and whose turn it is, but that can be done automatically).Let's represent the board as a list of 14 numbers.  The firstsix will be the player's holes, the seventh will be theplayer's goal hole, the next six will be the computer's holes(counting counter-clockwise around the board) and the 14th willbe the computer's goal hole.  So the list (1 3 0 2 2 2 6 4 2 1 0 8 1 11)would represent the board position:     1  8  0  1  2  4 11                    6     1  3  0  2  2  2For the purposes of this program, holes are numbered from 0 to 13,beginning with the player's first hole and going counterclockwise.So above, there is 1 stone in hole number 0, 3 in hole number 1,4 in number 7, 11 in number 13, etc.1. Owari: the rules of the gameEach player has six pits lined up horizontally in front of him or her, and a "goal" pit on the sideto the right. When you play against the computer, the board will be represented as a picture:	3 3 3 3 3 30 				  0	3 3 3 3 3 3with your pits at the bottom, your goal pit at the right, and the computer's pits at the top and goalpit at the left. The picture above shows the start position: each pit has 3 stones in it, except forthe goal pits which are empty.To make a move, a player chooses one of the six pits on his or her side of the board (the chosenpit must have stones in it) and redistributes (or "sows") the stones one-by-one going counterclockwisearound the board, starting with the pit following the one picked. The opponent's goalpit, if reached, is skipped. For the purposes of this implementation, the pits on the player's sideare numbered 0 to 5, with 6 being the player's goal pit, and the computer's pits are numbered 7 to12 from right to left (i.e. continuing counter-clockwise) with the computer's goal pit number 13.If on your first turn you choose to move from pit number 4, the resulting position would be:	3 3 3 3 3 40 				  1	3 3 3 3 0 4Capturing: If the last stone of a player's move falls into an empty pit on the moving player's sideof the board, then any stones in the pit opposite to it are captured and placed in the movingplayer's goal pit. For instance, if it were your turn in the position shown above, you couldchoose to move from pit number 1 (remember that the leftmost pit on your side is number 0) andthe resulting position would be:	3 3 3 3 0 40 				  4	3 0 4 4 1 4in which the stones from pit number 8 have been captured and placed in your goal pit.Ending the game: When either player empties all six pits on his or her side of the board, thegame is over. The other player takes all the remaining stones from his or her own side, andplaces them in his or her goal pit. Players count the stones in their goal pits. The player with themost stones is the winner.NOTE: Implimentation of the minimax with alpha beta pruning is completed.	But still there is some stuff that I must work on them.	The Computer class works only if you pass the computer player as the 	second player to the OWARI, and you can only use one computer bot in the game.
+OWARI is played on a board with 14 holes arranged as two rows of 6
+with two holes in the middle on the ends of the rows.  Complete rules
+of the game are int Owari: the rules of the game.
+
+The STATE of the game is very simple to describe.  All you need
+to keep track of are the number of stones in each of the fourteen
+holes (and whose turn it is, but that can be done automatically).
+Let's represent the board as a list of 14 numbers.  The first
+six will be the player's holes, the seventh will be the
+player's goal hole, the next six will be the computer's holes
+(counting counter-clockwise around the board) and the 14th will
+be the computer's goal hole.  So the list 
+(1 3 0 2 2 2 6 4 2 1 0 8 1 11)
+would represent the board position:
+
+     1  8  0  1  2  4
+ 11                    6
+     1  3  0  2  2  2
+
+For the purposes of this program, holes are numbered from 0 to 13,
+beginning with the player's first hole and going counterclockwise.
+So above, there is 1 stone in hole number 0, 3 in hole number 1,
+4 in number 7, 11 in number 13, etc.
+
+1. Owari: the rules of the game
+Each player has six pits lined up horizontally in front of him or her, and a "goal" pit on the side
+to the right. When you play against the computer, the board will be represented as a picture:
+     3 3 3 3 3 3
+0                    0
+     3 3 3 3 3 3
+with your pits at the bottom, your goal pit at the right, and the computer's pits at the top and goal
+pit at the left. The picture above shows the start position: each pit has 3 stones in it, except for
+the goal pits which are empty.
+To make a move, a player chooses one of the six pits on his or her side of the board (the chosen
+pit must have stones in it) and redistributes (or "sows") the stones one-by-one going counterclockwise
+around the board, starting with the pit following the one picked. The opponent's goal
+pit, if reached, is skipped. For the purposes of this implementation, the pits on the player's side
+are numbered 0 to 5, with 6 being the player's goal pit, and the computer's pits are numbered 7 to
+12 from right to left (i.e. continuing counter-clockwise) with the computer's goal pit number 13.
+If on your first turn you choose to move from pit number 4, the resulting position would be:
+     3 3 3 3 3 4
+0                    1
+     3 3 3 3 0 4
+
+Capturing: If the last stone of a player's move falls into an empty pit on the moving player's side
+of the board, then any stones in the pit opposite to it are captured and placed in the moving
+player's goal pit. For instance, if it were your turn in the position shown above, you could
+choose to move from pit number 1 (remember that the leftmost pit on your side is number 0) and
+the resulting position would be:
+     3 3 3 3 0 4
+0                    4
+     3 0 4 4 1 4
+in which the stones from pit number 8 have been captured and placed in your goal pit.
+
+Ending the game: When either player empties all six pits on his or her side of the board, the
+game is over. The other player takes all the remaining stones from his or her own side, and
+places them in his or her goal pit. Players count the stones in their goal pits. The player with the
+most stones is the winner.
+
+NOTE: Implimentation of the minimax with alpha beta pruning is completed.
+	But still there is some stuff that I must work on them.
+	The Computer class works only if you pass the computer player as the 
+	second player to the OWARI, and you can only use one computer bot in the
+	game.
+=======
+OWARI is played on a board with 14 holes arranged as two rows of 6
+with two holes in the middle on the ends of the rows.  Complete rules
+of the game are int Owari: the rules of the game.
+
+The STATE of the game is very simple to describe.  All you need
+to keep track of are the number of stones in each of the fourteen
+holes (and whose turn it is, but that can be done automatically).
+Let's represent the board as a list of 14 numbers.  The first
+six will be the player's holes, the seventh will be the
+player's goal hole, the next six will be the computer's holes
+(counting counter-clockwise around the board) and the 14th will
+be the computer's goal hole.  So the list 
+(1 3 0 2 2 2 6 4 2 1 0 8 1 11)
+would represent the board position:
+
+     1  8  0  1  2  4
+ 11                    6
+     1  3  0  2  2  2
+
+For the purposes of this program, holes are numbered from 0 to 13,
+beginning with the player's first hole and going counterclockwise.
+So above, there is 1 stone in hole number 0, 3 in hole number 1,
+4 in number 7, 11 in number 13, etc.
+
+1. Owari: the rules of the game
+Each player has six pits lined up horizontally in front of him or her, and a "goal" pit on the side
+to the right. When you play against the computer, the board will be represented as a picture:
+	3 3 3 3 3 3
+0 				  0
+	3 3 3 3 3 3
+with your pits at the bottom, your goal pit at the right, and the computer's pits at the top and goal
+pit at the left. The picture above shows the start position: each pit has 3 stones in it, except for
+the goal pits which are empty.
+To make a move, a player chooses one of the six pits on his or her side of the board (the chosen
+pit must have stones in it) and redistributes (or "sows") the stones one-by-one going counterclockwise
+around the board, starting with the pit following the one picked. The opponent's goal
+pit, if reached, is skipped. For the purposes of this implementation, the pits on the player's side
+are numbered 0 to 5, with 6 being the player's goal pit, and the computer's pits are numbered 7 to
+12 from right to left (i.e. continuing counter-clockwise) with the computer's goal pit number 13.
+If on your first turn you choose to move from pit number 4, the resulting position would be:
+	3 3 3 3 3 4
+0 				  1
+	3 3 3 3 0 4
+
+Capturing: If the last stone of a player's move falls into an empty pit on the moving player's side
+of the board, then any stones in the pit opposite to it are captured and placed in the moving
+player's goal pit. For instance, if it were your turn in the position shown above, you could
+choose to move from pit number 1 (remember that the leftmost pit on your side is number 0) and
+the resulting position would be:
+	3 3 3 3 0 4
+0 				  4
+	3 0 4 4 1 4
+in which the stones from pit number 8 have been captured and placed in your goal pit.
+
+Ending the game: When either player empties all six pits on his or her side of the board, the
+game is over. The other player takes all the remaining stones from his or her own side, and
+places them in his or her goal pit. Players count the stones in their goal pits. The player with the
+most stones is the winner.
+
+NOTE: Implementation of the minimax with alpha beta pruning is completed.
+	But still there is some stuff that I must work on.
+	The Computer class works only if you pass the computer player as the 
+	second player to OWARI, and you can only use one computer bot in the game.
